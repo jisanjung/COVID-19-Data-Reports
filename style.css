@@ -125,18 +125,11 @@
 .bottom-row span {
     font-size: 25px;
 }
-.results ul li:nth-child(1) {
-    
-}
-.results ul li:nth-child(2) {
-    
-}
-.results ul li:nth-child(3) {
 
+/* error module */
+.error {
+    display: none;
 }
-.results ul li:nth-child(4) {
-
-}
-.results ul li:nth-child(5) {
-
+.error img {
+    width: 100%;
 }

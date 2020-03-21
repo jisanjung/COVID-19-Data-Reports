@@ -17,7 +17,8 @@
                 <h1 class="grey-text text-lighten-5 thin hide_clicked">How's your area doing?</h1>
                 <div class="input-field">
                     <input type="text" class="state-input grey-text text-lighten-5 thin validate" id="state_name">
-                <label for="state_name">Enter State</label>
+                    <span id="inputError"></span>
+                <label for="state_name">Enter State (ex: "New York", "California")</label>
                 </div>
                 <button type="button" class="waves-effect waves-light btn full-width">Search
                 </button>
@@ -69,6 +70,16 @@
                 </div>
             </div>
         </div>
+
+        <!--error module-->
+        <div class="container">
+            <div class="error">
+                <h4 class="grey-text text-lighten-5 thin">No results for </br>
+                    "<span class="search_results"></span>"
+                </h4>
+                <img src="images/error.svg" alt="Error SVG">
+            </div>
+        </div>
     <!--jquery-->
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -77,6 +88,7 @@
     <!-- Compiled and minified JavaScript -->
     <script></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="validation.js"></script>
     <script src="script.js"></script>
     </body>
 </html>

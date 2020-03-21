@@ -33,10 +33,12 @@ $(function() {
         var recovered = $("#recovered");
         var percentBar = $(".percent_bar");
         var USCases = $("#USCases");
+        var error = $(".error");
 
         // display results
         function showData(data) {
             hideWhenClicked.hide();
+            error.hide();
             results.show();
             var value = toTitleCase(input.val()); // "new york" -> "New York"
             var totalSum = 0;
@@ -52,6 +54,8 @@ $(function() {
                         todayDeaths: data[i].todayDeaths,
                         recovered: data[i].recovered
                     });
+                } else if (value === "") {   
+                    console.log("error");
                 }
             });
             percentBar.css({
