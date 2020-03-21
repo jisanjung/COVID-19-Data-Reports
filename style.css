@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+.inline-block {
+    display: inline-block;
+}
+.full-width {
+    width: 100%;
+}
+.text-center {
+    text-align: center;
+}
+
+/* search component */
+.background-svg {
+    margin-top: 50px;
+}
+.search img {
+    width: 100%;
+}
+.search p {
+    font-size: 18px;
+}
