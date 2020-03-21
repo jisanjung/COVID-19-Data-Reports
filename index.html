@@ -14,7 +14,7 @@
         <div class="container">
             <!--search component-->
             <div class="search">
-                <h1 class="grey-text text-lighten-5 thin">How's your city doing?</h1>
+                <h1 class="grey-text text-lighten-5 thin hide_clicked">How's your city doing?</h1>
                 <div class="input-field">
                     <input type="text" class="state-input grey-text text-lighten-5 thin validate" id="state_name">
                 <label for="state_name">Enter State</label>
@@ -22,7 +22,7 @@
                 <button type="button" class="waves-effect waves-light btn full-width">Search
                 </button>
                 <!--background component-->
-                <section class="background-svg">
+                <section class="background-svg hide_clicked">
                     <p class="grey-text text-lighten-5 thin text-center">One platform that will provide data on COVID-19 in your city.</p>
                     <img src="images/social_distance.svg" alt="Social Distancing">
                 </section>
@@ -32,12 +32,30 @@
             <div class="container">
                 <div class="results">
                     <h4 class="grey-text text-lighten-5 thin">Search results for </br><span class="search_results"></span></h4>
-                    <ul>
-                        <li class="grey-text text-lighten-5 thin">Total Cases: <span id="totalCases"></span></li>
-                        <li class="grey-text text-lighten-5 thin">Cases for today: <span  id="casesToday"></span></li>
-                        <li class="grey-text text-lighten-5 thin">Total Deaths: <span  id="totalDeaths"></span></li>
-                        <li class="grey-text text-lighten-5 thin">Deaths Today: <span  id="deathsToday"></span></li>
-                        <li class="grey-text text-lighten-5 thin">Recovered from illness: <span  id="recovered"></span></li>
+                    <ul class="flex">
+                        <li class="grey-text text-lighten-5 thin a-s-left relative">
+                                <h6>Total Cases</h6><span id="totalCases"></span>
+                        </li>
+                        <li class="grey-text text-lighten-5 thin a-s-center relative" id="cases">
+                                <h6 class="h-center text-center">Cases for today</h6><span id="casesToday" class="all-center"></span>
+                        </li>
+                        <div class="flex bottom-row">
+                            <li class="grey-text text-lighten-5 thin relative">
+                                <div class="h-center flex text-center">
+                                    <h6>Total Deaths</h6><span id="totalDeaths"></span>
+                                </div>
+                            </li>
+                            <li class="grey-text text-lighten-5 thin relative">
+                                <div class="h-center flex text-center">
+                                    <h6>Deaths Today</h6><span id="deathsToday"></span>
+                                </div>
+                            </li>
+                            <li class="grey-text text-lighten-5 thin relative">
+                                <div class="h-center flex text-center">
+                                    <h6>Recovered from illness</h6><span id="recovered"></span>
+                                </div>
+                            </li>
+                        </div>
                     </ul>
                 </div>
             </div>

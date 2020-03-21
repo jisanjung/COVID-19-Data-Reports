@@ -23,7 +23,7 @@ $(function() {
     var results = (function() {
         // cache DOM
         var input = $(".state-input");
-        var searchComponent = $(".search");
+        var hideWhenClicked = $(".hide_clicked");
         var results = $(".results");
         var searchResults = $(".search_results");
         var totalCases = $("#totalCases");
@@ -34,7 +34,7 @@ $(function() {
 
         // display results
         function showData(data) {
-            searchComponent.hide();
+            hideWhenClicked.hide();
             results.show();
             var value = toTitleCase(input.val()); // "new york" -> "New York"
 
