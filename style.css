@@ -23,6 +23,9 @@
 .text-center {
     text-align: center;
 }
+.text-right {
+    text-align: right;
+}
 .flex {
     display: flex;
 }
@@ -34,6 +37,9 @@
 }
 .a-s-center {
     align-self: center;
+}
+.j-c-between {
+    justify-content: space-between;
 }
 .v-center {
     position: relative;
@@ -51,6 +57,9 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+.test {
+    border: 1px solid red;
+}
 
 /* search component */
 .background-svg {
@@ -62,9 +71,6 @@
 .search p {
     font-size: 18px;
 }
-.state-input {
-    display: block !important;
-}
 
 /* results component */
 .results {
@@ -75,14 +81,25 @@
 }
 .results ul li {
     flex-direction: column-reverse;
-    width: 100px;
-    height: 100px;
 }
 .results ul li div {
     flex-direction: column-reverse;
 }
+.casesTotal {
+    width: 100%;
+    height: 10px;
+}
+.percent_bar {
+    background: #fda50f;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+#USCases {
+    float: right;
+}
 #cases {
-    border: 2px solid red;
+    border: 2px solid #fda50f;
     border-radius: 50%;
     width: 200px;
     height: 200px;
@@ -98,11 +115,18 @@
     margin-top: 30px;
     justify-content: center;
 }
+.bottom-row li {
+    width: 100px;
+    height: 100px;
+}
+.bottom-row h6 {
+    font-size: 14px;
+}
 .bottom-row span {
-    font-size: 20px;
+    font-size: 25px;
 }
 .results ul li:nth-child(1) {
-
+    
 }
 .results ul li:nth-child(2) {
     

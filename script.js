@@ -31,14 +31,18 @@ $(function() {
         var totalDeaths = $("#totalDeaths");
         var deathsToday = $("#deathsToday");
         var recovered = $("#recovered");
+        var percentBar = $(".percent_bar");
+        var USCases = $("#USCases");
 
         // display results
         function showData(data) {
             hideWhenClicked.hide();
             results.show();
             var value = toTitleCase(input.val()); // "new york" -> "New York"
+            var totalSum = 0;
 
             $.each(data, function(i, val) {
+                totalSum += data[i].cases;
                 if (value === data[i].state) {
                     render({
                         state: data[i].state,
@@ -50,6 +54,10 @@ $(function() {
                     });
                 }
             });
+            percentBar.css({
+                right: "" + percentage(parseInt(totalCases.text()), Math.ceil(totalSum)) + "%"
+            });
+            USCases.text(Math.ceil(totalSum));
         }
 
         // render html
@@ -60,6 +68,12 @@ $(function() {
             totalDeaths.text(obj.deaths);
             deathsToday.text(obj.todayDeaths);
             recovered.text(obj.recovered);
+        }
+
+        // calculate percentage
+        function percentage(cases, total) {
+            var percent = cases / total;
+            return 100 - Math.ceil(percent * 100);
         }
 
         return {
