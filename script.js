@@ -1,15 +1,8 @@
 $(function() {
-
     // search module
     var search = (function() {
-        // method calls
-
         // cache DOM
         var btn = $(".search button");
-        var input = $(".state-input");
-        var searchComponent = $(".search");
-        var results = $(".results");
-        var searchResults = $(".search_results");
 
         // events
         btn.click(displayData);
@@ -20,16 +13,64 @@ $(function() {
                 method: "GET",
                 url: "https://corona.lmao.ninja/states",
                 success: function(data) {
-                    searchComponent.hide();
-                    results.show();
-    
-                    $.each(data, function(i, val) {
-                        if (input.val() === data[i].state) {
-                            searchResults.text(data[i].state);
-                        }
-                    });
+                    results.showData(data);
                 }
             });
         }
     })();
+
+    // results module
+    var results = (function() {
+        // cache DOM
+        var input = $(".state-input");
+        var searchComponent = $(".search");
+        var results = $(".results");
+        var searchResults = $(".search_results");
+        var totalCases = $("#totalCases");
+        var casesToday = $("#casesToday");
+        var totalDeaths = $("#totalDeaths");
+        var deathsToday = $("#deathsToday");
+        var recovered = $("#recovered");
+
+        // display results
+        function showData(data) {
+            searchComponent.hide();
+            results.show();
+            var value = toTitleCase(input.val()); // "new york" -> "New York"
+
+            $.each(data, function(i, val) {
+                if (value === data[i].state) {
+                    render({
+                        state: data[i].state,
+                        cases: data[i].cases,
+                        todayCases: data[i].todayCases,
+                        deaths: data[i].deaths,
+                        todayDeaths: data[i].todayDeaths,
+                        recovered: data[i].recovered
+                    });
+                }
+            });
+        }
+
+        // render html
+        function render(obj) {
+            searchResults.text(obj.state);
+            totalCases.text(obj.cases);
+            casesToday.text(obj.todayCases);
+            totalDeaths.text(obj.deaths);
+            deathsToday.text(obj.todayDeaths);
+            recovered.text(obj.recovered);
+        }
+
+        return {
+            showData: showData
+        };
+    })();
 });
+
+// global functions
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
