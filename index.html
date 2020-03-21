@@ -16,8 +16,8 @@
             <div class="search">
                 <h1 class="grey-text text-lighten-5 thin">How's your city doing?</h1>
                 <div class="input-field">
-                    <input type="text" class="city-input grey-text text-lighten-5 thin validate" id="city_name">
-                <label for="city_name">Enter City Name</label>
+                    <input type="text" class="state-input grey-text text-lighten-5 thin validate" id="state_name">
+                <label for="state_name">Enter State</label>
                 </div>
                 <button type="button" class="waves-effect waves-light btn full-width">Search
                 </button>
@@ -29,8 +29,17 @@
             </div>
 
             <!--results component-->
-            <div class="results">
-                
+            <div class="container">
+                <div class="results">
+                    <h4 class="grey-text text-lighten-5 thin">Search results for <span class="search_results"></span></h4>
+                    <ul>
+                        <li id="totalCases"></li>
+                        <li id="casesToday"></li>
+                        <li id="totalDeaths"></li>
+                        <li id="deathsToday"></li>
+                        <li id="recovered"></li>
+                    </ul>
+                </div>
             </div>
         </div>
     <!--jquery-->

@@ -27,3 +27,8 @@
 .search p {
     font-size: 18px;
 }
+
+/* results component */
+.results {
+    display: none;
+}
