@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>COVID-19 Data Reports</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css"> 
@@ -19,35 +19,37 @@
                     <input type="text" class="state-input grey-text text-lighten-5 thin validate" id="state_name">
                     <span id="inputError"></span>
                 <label for="state_name">Enter State (ex: "New York", "California")</label>
-                </div>
                 <button type="button" class="waves-effect waves-light btn full-width">Search
                 </button>
+                </div>
                 <!--background component-->
                 <section class="background-svg hide_clicked">
                     <p class="grey-text text-lighten-5 thin text-center">One platform that will provide data on COVID-19 in your city.</p>
                     <img src="images/social_distance.svg" alt="Social Distancing">
                 </section>
             </div>
+        </div>
 
-            <!--results component-->
-            <div class="container">
-                <div class="results">
-                    <h4 class="grey-text text-lighten-5 thin">Search results for </br><span class="search_results"></span></h4>
-                    <ul class="flex">
-                        <li class="grey-text text-lighten-5 thin a-s-left relative casesTotal blue-grey darken-4">
-                                <div class="percent_bar absolute"></div>
+        <!--results component-->
+        <div class="container">
+            <div class="results">
+                <h4 class="grey-text text-lighten-5 thin">Search results for </br><span class="search_results"></span></h4>
+                <ul class="flex">
+                    <li class="grey-text text-lighten-5 thin a-s-left relative casesTotal blue-grey darken-4">
+                            <div class="percent_bar absolute"></div>
+                    </li>
+                    <div class="flex j-c-between">
+                        <li class="grey-text text-lighten-5 thin a-s-left">
+                            <h6>Total Cases</h6><span id="totalCases"></span>
                         </li>
-                        <div class="flex j-c-between">
-                            <li class="grey-text text-lighten-5 thin a-s-left">
-                                <h6>Total Cases</h6><span id="totalCases"></span>
-                            </li>
-                            <li class="grey-text text-lighten-5 thin">
-                                <h6>Total US Cases</h6>
-                                <span id="USCases"></span>
-                            </li>
-                        </div>
+                        <li class="grey-text text-lighten-5 thin">
+                            <h6>Total US Cases</h6>
+                            <span id="USCases"></span>
+                        </li>
+                    </div>
+                    <div class="flex group">
                         <li class="grey-text text-lighten-5 thin a-s-center relative z-depth-5" id="cases">
-                                <h6 class="h-center text-center">Cases for today</h6><span id="casesToday" class="all-center"></span>
+                            <h6 class="h-center text-center">Cases for today</h6><span id="casesToday" class="all-center"></span>
                         </li>
                         <div class="flex bottom-row">
                             <li class="grey-text text-lighten-5 thin relative">
@@ -66,8 +68,12 @@
                                 </div>
                             </li>
                         </div>
-                    </ul>
-                </div>
+                    </div>
+                </ul>
+            </div>
+            <!--home link-->
+            <div class="back_home">
+                
             </div>
         </div>
 
