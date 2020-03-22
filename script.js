@@ -3,16 +3,26 @@ $(function() {
     var search = (function() {
         // cache DOM
         var btn = $(".search button");
+        var doc = $(document);
 
         // events
         btn.click(displayData);
+        doc.keypress(function(e) {
+            var key = (e.keyCode ? e.keyCode : e.which);
+            if (key == "13") {
+                e.preventDefault();
+                displayData();
+            }
+        });
 
         // hide the home page and display data
         function displayData() {
+            loading.on();
             $.ajax({
                 method: "GET",
                 url: "https://corona.lmao.ninja/states",
                 success: function(data) {
+                    loading.off();
                     results.showData(data);
                 }
             });
@@ -38,6 +48,7 @@ $(function() {
         function showData(data) {
             hideWhenClicked.hide();
             results.show();
+            homeBtn.on();
             var value = toTitleCase(input.val()); // "new york" -> "New York"
             var totalSum = 0;
 
@@ -101,6 +112,7 @@ $(function() {
                 home.hide();
                 results.hide();
                 errorModule.show();
+                homeBtn.on();
                 search_results.text(input.val());
             }
         }
@@ -115,6 +127,51 @@ $(function() {
             hideError: hideModule
         }
     })();
+
+    // home button
+    var homeBtn = (function() {
+        // cache DOM
+        var backHome = $(".back_home");
+
+        // events
+        backHome.click(reload);
+
+        // on
+        function showButton() {
+            backHome.show();
+        }
+
+        // off
+        function hideButton() {
+            backHome.hide();
+        }
+
+        return {
+            on: showButton,
+            off: hideButton
+        };
+    })();
+
+    // loading module
+    var loading = (function() {
+        // cache DOM
+        var loadingMod = $(".loading");
+
+        // on
+        function showLoad() {
+            loadingMod.show();
+        }
+
+        // off
+        function hideLoad() {
+            loadingMod.hide();
+        }
+
+        return {
+            on: showLoad,
+            off: hideLoad
+        };
+    })();
 });
 
 // global functions
@@ -122,4 +179,7 @@ function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
+}
+function reload() {
+    window.location.reload(true);
 }
