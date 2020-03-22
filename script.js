@@ -33,12 +33,10 @@ $(function() {
         var recovered = $("#recovered");
         var percentBar = $(".percent_bar");
         var USCases = $("#USCases");
-        var error = $(".error");
 
         // display results
         function showData(data) {
             hideWhenClicked.hide();
-            error.hide();
             results.show();
             var value = toTitleCase(input.val()); // "new york" -> "New York"
             var totalSum = 0;
@@ -54,14 +52,11 @@ $(function() {
                         todayDeaths: data[i].todayDeaths,
                         recovered: data[i].recovered
                     });
-                } else if (value === "") {   
-                    console.log("error");
+                    displayError.hideError();
                 }
             });
-            percentBar.css({
-                right: "" + percentage(parseInt(totalCases.text()), Math.ceil(totalSum)) + "%"
-            });
-            USCases.text(Math.ceil(totalSum));
+            renderBar(totalSum);
+            displayError.check(casesToday, hideWhenClicked, results);
         }
 
         // render html
@@ -80,9 +75,45 @@ $(function() {
             return 100 - Math.ceil(percent * 100);
         }
 
+        // display percentage bar 
+        function renderBar(sum) {
+            percentBar.css({
+                right: "" + percentage(parseInt(totalCases.text()), Math.ceil(sum)) + "%"
+            });
+            USCases.text(Math.ceil(sum));
+        }
+
         return {
             showData: showData
         };
+    })();
+
+    // error module
+    var displayError = (function() {
+        // cache DOM
+        var errorModule = $(".error");
+        var input = $(".state-input");
+        var search_results = $(".search_results");
+
+        // check for error
+        function errorCheck(element, home, results) {
+            if (!element.text()) {
+                home.hide();
+                results.hide();
+                errorModule.show();
+                search_results.text(input.val());
+            }
+        }
+
+        // hide module
+        function hideModule() {
+            errorModule.hide();
+        }
+
+        return {
+            check: errorCheck,
+            hideError: hideModule
+        }
     })();
 });
 
