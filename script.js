@@ -49,7 +49,7 @@ $(function() {
             hideWhenClicked.hide();
             results.show();
             homeBtn.on();
-            var value = toTitleCase(input.val()); // "new york" -> "New York"
+            var value = toTitleCase(input.val()).trim(); // "new york" -> "New York"
             var totalSum = 0;
 
             $.each(data, function(i, val) {
