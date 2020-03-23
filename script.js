@@ -55,15 +55,13 @@ $(function() {
             $.each(data, function(i, val) {
                 totalSum += data[i].cases;
                 if (value === data[i].state) {
-                    render({
-                        state: data[i].state,
-                        cases: data[i].cases,
-                        todayCases: data[i].todayCases,
-                        deaths: data[i].deaths,
-                        todayDeaths: data[i].todayDeaths,
-                        recovered: data[i].recovered
-                    });
                     displayError.hideError();
+                    render.display(searchResults, data[i].state);
+                    render.display(totalCases, data[i].cases);
+                    render.countUp("casesToday", data[i].todayCases);
+                    render.countUp("totalDeaths", data[i].deaths);
+                    render.countUp("deathsToday", data[i].todayDeaths);
+                    render.countUp("recovered", data[i].recovered);
                 }
             });
             renderBar(totalSum);
@@ -71,14 +69,15 @@ $(function() {
         }
 
         // render html
-        function render(obj) {
-            searchResults.text(obj.state);
-            totalCases.text(obj.cases);
-            casesToday.text(obj.todayCases);
-            totalDeaths.text(obj.deaths);
-            deathsToday.text(obj.todayDeaths);
-            recovered.text(obj.recovered);
-        }
+        var render = {
+            countUp: function(id, number) {
+                var c = new CountUp(id, 0, number);
+                c.start();
+            },
+            display: function(element, number) {
+                element.text(number);
+            }
+        };
 
         // calculate percentage
         function percentage(cases, total) {
@@ -89,8 +88,13 @@ $(function() {
         // display percentage bar 
         function renderBar(sum) {
             percentBar.css({
-                right: "" + percentage(parseInt(totalCases.text()), Math.ceil(sum)) + "%"
+                right: "100%"
             });
+            setTimeout(function() {
+                percentBar.css({
+                    right: "" + percentage(parseInt(totalCases.text()), Math.ceil(sum)) + "%"
+                });
+            }, 10);
             USCases.text(Math.ceil(sum));
         }
 
