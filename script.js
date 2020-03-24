@@ -38,9 +38,6 @@ $(function() {
         var searchResults = $(".search_results");
         var totalCases = $("#totalCases");
         var casesToday = $("#casesToday");
-        var totalDeaths = $("#totalDeaths");
-        var deathsToday = $("#deathsToday");
-        var recovered = $("#recovered");
         var percentBar = $(".percent_bar");
         var USCases = $("#USCases");
 
@@ -61,7 +58,6 @@ $(function() {
                     render.countUp("casesToday", data[i].todayCases);
                     render.countUp("totalDeaths", data[i].deaths);
                     render.countUp("deathsToday", data[i].todayDeaths);
-                    render.countUp("recovered", data[i].recovered);
                 }
             });
             renderBar(totalSum);
