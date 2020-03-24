@@ -101,7 +101,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    transition: 0.5s ease;
+    transition: 1s ease;
 }
 #USCases {
     float: right;
