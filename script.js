@@ -21,10 +21,7 @@ $(function() {
             filterList.on();
         });
         $("body").on("click", ".filter li", function(e) {
-            var clickedStateName = e.currentTarget.innerText;
-            input.val(clickedStateName);
-        });
-        $("body").on("tap", ".filter li", function(e) {
+            e.stopPropagation();
             var clickedStateName = e.currentTarget.innerText;
             input.val(clickedStateName);
         });
