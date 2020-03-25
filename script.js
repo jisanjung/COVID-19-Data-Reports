@@ -20,7 +20,7 @@ $(function() {
         input.keyup(function() {
             filterList.on();
         });
-        $(document).on("click", ".filter li", function(e) {
+        $("body").on("click", ".filter li", function(e) {
             var clickedStateName = e.currentTarget.innerText;
             input.val(clickedStateName);
         });
