@@ -78,9 +78,11 @@
     position: relative;
     z-index: 9;
 }
-.filter li {
+.filter a {
     padding: 15px 0;
     border-bottom: 1px solid #26a69a;
+    color: #fff;
+    display: block;
 }
 
 
