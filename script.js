@@ -4,6 +4,8 @@ $(function() {
         // cache DOM
         var btn = $(".search button");
         var doc = $(document);
+        var input = $(".state-input");
+        var filterMod = $(".filter");
 
         // events
         btn.click(displayData);
@@ -13,6 +15,11 @@ $(function() {
                 e.preventDefault();
                 displayData();
             }
+        });
+        input.keyup(filterList);
+        $(document).on("click", ".filter li", function(e) {
+            var clickedStateName = e.currentTarget.innerText;
+            input.val(clickedStateName);
         });
 
         // hide the home page and display data
@@ -26,6 +33,36 @@ $(function() {
                     results.showData(data);
                 }
             });
+        }
+
+        // filter thru list of states
+        function filterList() {
+            $.ajax({
+                method: "GET",
+                url: "states.json",
+                success: function(data) {
+
+                    // match search input with name of state
+                    var matches = data.filter(function(state) {
+                        var regEx = new RegExp("^" + input.val(), "gi");
+                        return state.name.match(regEx);
+                    });
+                    if (input.val().length === 0) {
+                        matches = [];
+                        filterMod.html("");
+                    }
+                    outputMatches(matches);
+                } 
+            });
+            // show results to html
+            function outputMatches(matches) {
+                if (matches.length > 0) {
+                    var html = matches.map(function(match) {
+                        return "<li>"+ match.name +"</li>";
+                    }).join("");
+                    filterMod.html(html);
+                }
+            }
         }
     })();
 
