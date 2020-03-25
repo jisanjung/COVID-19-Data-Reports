@@ -20,7 +20,7 @@ $(function() {
         input.keyup(function() {
             filterList.on();
         });
-        $("body").on("click", ".filter li", function(e) {
+        $("body").on("click", ".filter a", function(e) {
             e.stopPropagation();
             var clickedStateName = e.currentTarget.innerText;
             input.val(clickedStateName);
@@ -64,7 +64,7 @@ $(function() {
                 function outputMatches(matches) {
                     if (matches.length > 0) {
                         var html = matches.map(function(match) {
-                            return "<li>"+ match.name +"</li>";
+                            return "<a href='#'>"+ match.name +"</a>";
                         }).join("");
                         filterMod.html(html);
                     }
