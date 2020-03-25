@@ -24,6 +24,10 @@ $(function() {
             var clickedStateName = e.currentTarget.innerText;
             input.val(clickedStateName);
         });
+        $("body").on("tap", ".filter li", function(e) {
+            var clickedStateName = e.currentTarget.innerText;
+            input.val(clickedStateName);
+        });
 
         // hide the home page and display data
         function displayData() {
