@@ -14,9 +14,12 @@ $(function() {
             if (key == "13") {
                 e.preventDefault();
                 displayData();
+                filterList.off();
             }
         });
-        input.keyup(filterList);
+        input.keyup(function() {
+            filterList.on();
+        });
         $(document).on("click", ".filter li", function(e) {
             var clickedStateName = e.currentTarget.innerText;
             input.val(clickedStateName);
@@ -25,6 +28,7 @@ $(function() {
         // hide the home page and display data
         function displayData() {
             loading.on();
+            filterList.off();
             $.ajax({
                 method: "GET",
                 url: "https://corona.lmao.ninja/states",
@@ -36,34 +40,39 @@ $(function() {
         }
 
         // filter thru list of states
-        function filterList() {
-            $.ajax({
-                method: "GET",
-                url: "states.json",
-                success: function(data) {
-
-                    // match search input with name of state
-                    var matches = data.filter(function(state) {
-                        var regEx = new RegExp("^" + input.val(), "gi");
-                        return state.name.match(regEx);
-                    });
-                    if (input.val().length === 0) {
-                        matches = [];
-                        filterMod.html("");
+        var filterList = {
+            on: function() {
+                $.ajax({
+                    method: "GET",
+                    url: "states.json",
+                    success: function(data) {
+    
+                        // match search input with name of state
+                        var matches = data.filter(function(state) {
+                            var regEx = new RegExp("^" + input.val(), "gi");
+                            return state.name.match(regEx);
+                        });
+                        if (input.val().length === 0) {
+                            matches = [];
+                            filterList.off();
+                        }
+                        outputMatches(matches);
+                    } 
+                });
+                // show results to html
+                function outputMatches(matches) {
+                    if (matches.length > 0) {
+                        var html = matches.map(function(match) {
+                            return "<li>"+ match.name +"</li>";
+                        }).join("");
+                        filterMod.html(html);
                     }
-                    outputMatches(matches);
-                } 
-            });
-            // show results to html
-            function outputMatches(matches) {
-                if (matches.length > 0) {
-                    var html = matches.map(function(match) {
-                        return "<li>"+ match.name +"</li>";
-                    }).join("");
-                    filterMod.html(html);
                 }
+            },
+            off: function() {
+                filterMod.html("");
             }
-        }
+        };
     })();
 
     // results module
@@ -77,12 +86,14 @@ $(function() {
         var casesToday = $("#casesToday");
         var percentBar = $(".percent_bar");
         var USCases = $("#USCases");
+        var filter = $(".filter");
 
         // display results
         function showData(data) {
             hideWhenClicked.hide();
             results.show();
             homeBtn.on();
+            filter.html("");
             var value = toTitleCase(input.val()).trim(); // "new york" -> "New York"
             var totalSum = 0;
 
@@ -127,7 +138,7 @@ $(function() {
                 percentBar.css({
                     right: "" + percentage(parseInt(totalCases.text()), Math.ceil(sum)) + "%"
                 });
-            }, 10);
+            }, 100);
             USCases.text(Math.ceil(sum));
         }
 
