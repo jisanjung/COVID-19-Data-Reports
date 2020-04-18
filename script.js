@@ -32,7 +32,7 @@ $(function() {
             filterList.off();
             $.ajax({
                 method: "GET",
-                url: "https://corona.lmao.ninja/states",
+                url: "https://corona.lmao.ninja/v2/states",
                 success: function(data) {
                     loading.off();
                     results.showData(data);
