@@ -110,7 +110,10 @@ $(function() {
                     render.countUp("deathsToday", data[i].todayDeaths);
                 }
             });
-            renderBar(totalSum);
+            renderBar(totalSum, function() {
+                render.countUp("totalCases", totalCases.text());
+                render.countUp("USCases", USCases.text());
+            });
             displayError.check(casesToday, hideWhenClicked, results);
         }
 
@@ -132,7 +135,7 @@ $(function() {
         }
 
         // display percentage bar 
-        function renderBar(sum) {
+        function renderBar(sum, callback) {
             percentBar.css({
                 right: "100%"
             });
@@ -140,6 +143,7 @@ $(function() {
                 percentBar.css({
                     right: "" + percentage(parseInt(totalCases.text()), Math.ceil(sum)) + "%"
                 });
+                callback();
             }, 100);
             USCases.text(Math.ceil(sum));
         }
