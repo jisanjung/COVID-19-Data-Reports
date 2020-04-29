@@ -131,7 +131,7 @@
 }
 .bottom-row {
     margin-top: 30px;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .bottom-row li {
     width: 100px;
@@ -224,6 +224,8 @@ svg rect{
     .bottom-row {
         margin-top: 0;
         margin-left: 10px;
+        width: 40%;
+        justify-content: space-evenly;
     }
     .bottom-row li {
         position: relative;
