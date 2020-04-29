@@ -24,6 +24,7 @@ $(function() {
             e.preventDefault();
             var clickedStateName = e.currentTarget.innerText;
             input.val(clickedStateName);
+            input.focus();
         });
 
         // hide the home page and display data
