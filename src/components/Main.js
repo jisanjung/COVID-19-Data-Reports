@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Box from './Box'
+import Box from './SingleData'
+import Chart from './Chart';
+import Countries from './Countries';
 
 export class Main extends Component {
     constructor() {
         super();
         this.state = {
-            
+
         }
     }
     render() {
@@ -13,6 +15,8 @@ export class Main extends Component {
             <div>
                 Main
                 <Box/>
+                <Chart/>
+                <Countries/>
             </div>
         )
     }

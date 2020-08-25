@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Box = () => {
+const SingleData = (props) => {
     return (
         <section>
-            Box
+            singular data
         </section>
     )
 }
 
-export default Box
+export default SingleData
