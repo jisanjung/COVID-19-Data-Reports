@@ -12,12 +12,20 @@ export class Main extends Component {
     }
     render() {
         return (
-            <div>
+            <main>
                 Main
-                <Box/>
-                <Chart/>
-                <Countries/>
-            </div>
+                <div className="main-container flex direction-column">
+                    <div className="chart-layout">
+                        <Chart/>
+                    </div>
+                    <div className="single-data-section">
+                        <Box/>
+                    </div>
+                    <div className="country-list">
+                        <Countries/>
+                    </div>
+                </div>
+            </main>
         )
     }
 }

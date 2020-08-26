@@ -1,0 +1,41 @@
+@mixin container($size) {
+    margin: 0 auto;
+
+    @if ($size == "large") {
+        max-width: 1000px;
+    } @else if ($size == "medium") {
+        max-width: 80%;
+    } @else if ($size == "small") {
+        max-width: 90%;
+    } @else if ($size == "x-large") {
+        max-width: 1200px;
+    }
+}
+
+@mixin center($direction, $position) {
+    @if ($direction == "y") {
+        position: $position;
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if ($direction == "x") {
+        position: $position;
+        left: 50%;
+        transform: translateX(-50%);
+    } @else {
+        position: $position;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin media-query-grow($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+@mixin media-query-shrink($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
