@@ -60,7 +60,10 @@ export class Main extends Component {
                         <Chart/>
                     </div>
                     <div className="single-data-section">
-                        <SingleData/>
+                        <SingleData value={this.state.cases} type="Total Cases"/>
+                        <SingleData value={this.state.deaths} type="Deaths"/>
+                        <SingleData value={this.state.recovered} type="Recovered"/>
+                        <SingleData value={this.state.cases_today} type="Cases Today"/>
                     </div>
                     <div className="country-list">
                         <Countries/>
