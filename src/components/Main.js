@@ -58,12 +58,13 @@ export class Main extends Component {
                     </div>
                     <div className="chart-layout">
                         <Chart/>
+                        <SingleData value={this.state.cases_today} type="Cases Today"/>
                     </div>
                     <div className="single-data-section">
                         <SingleData value={this.state.cases} type="Total Cases"/>
                         <SingleData value={this.state.deaths} type="Deaths"/>
                         <SingleData value={this.state.recovered} type="Recovered"/>
-                        <SingleData value={this.state.cases_today} type="Cases Today"/>
+
                     </div>
                     <div className="country-list">
                         <Countries/>

@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Line } from "react-chartjs-2";
+import numeral from "numeral";
 
 export class Chart extends Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: {
+                labels: [],
+                datasets: [],
+            }
         }
     }
 
@@ -16,8 +20,26 @@ export class Chart extends Component {
             .then(res => res.json())
             .then(data => {
                 const keys = Object.keys(data.cases);
-                const values = Object.values(data.cases);
-                console.log(keys, values);
+                const cases = Object.values(data.cases);
+                const recovered = Object.values(data.recovered);
+                this.setState({ 
+                    // must be structured like this for chart.js
+                    data: {
+                        labels: [...keys],
+                        datasets: [{
+                            label: "Cases",
+                            data: [...cases],
+                            backgroundColor: "transparent",
+                            borderColor: "rgb(130, 122, 243)"
+                        },
+                        {
+                            label: "Recovered",
+                            data: [...recovered],
+                            backgroundColor: "transparent",
+                            borderColor: "rgb(108, 230, 244)"
+                        }]
+                    },
+                 });
             });
     }
 
@@ -25,8 +47,20 @@ export class Chart extends Component {
         return (
             <section>
                 <Line 
+                    data={this.state.data}
                     width={100}
-                    height={50}
+                    height={100}
+                    options={{
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    callback: function(value) {
+                                        return numeral(value).format("0a").toUpperCase();
+                                    }
+                                }
+                            }]
+                        }
+                    }}
                 />
             </section>
         )
