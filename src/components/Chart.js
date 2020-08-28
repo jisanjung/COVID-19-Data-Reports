@@ -45,12 +45,12 @@ export class Chart extends Component {
 
     render() {
         return (
-            <section>
+            <section className="chart-container">
                 <Line 
                     data={this.state.data}
-                    width={100}
-                    height={100}
                     options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
                         scales: {
                             yAxes: [{
                                 ticks: {
