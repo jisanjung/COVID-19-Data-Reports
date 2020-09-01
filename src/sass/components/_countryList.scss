@@ -1,3 +1,19 @@
+@import "../utils/variables";
+
+/* global for this component */ 
+.country-name {
+    width: 50%;
+}
+.country-data {
+    width: 33%;
+}
+
 .country-list {
-    height: 500px;
+    font-size: $med-text;
+    .list-wrap {
+        height: 500px;
+        table {
+            width: 100%;
+        }
+    }
 }

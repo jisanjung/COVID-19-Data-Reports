@@ -25,15 +25,17 @@ export class CountryList extends Component {
 
     render() {
         return (
-            <section>
-                <thead className="flex flex-between">
-                    <th>Name</th>
-                    <th>Cases</th>
-                </thead>
-                <div className="y-scroll country-list">
+            <section className="country-list">
+                <ul className="table-header flex">
+                    <li className="country-name"><span>Name</span></li>
+                    <li className="country-data"><span>Cases</span></li>
+                    <li className="country-data"><span>Deaths</span></li>
+                    <li className="country-data"><span>Recovered</span></li>
+                </ul>
+                <div className="y-scroll list-wrap">
                     <table>
                         <tbody>
-                            {this.state.countryStats.map((country, id) => <Country key={id} name={country.country} cases={country.cases}/>)}
+                            {this.state.countryStats.map((country, id) => <Country key={id} name={country.country} cases={country.cases} deaths={country.deaths} recovered={country.recovered} flag={country.countryInfo.flag}/>)}
                         </tbody>
                     </table>
                 </div>

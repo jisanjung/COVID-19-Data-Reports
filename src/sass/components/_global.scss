@@ -42,6 +42,9 @@ a {
 .flex-around {
     justify-content: space-around;
 }
+.flex-even {
+    justify-content: space-evenly;
+}
 .flex-wrap {
     flex-wrap: wrap;
 }
@@ -95,4 +98,7 @@ img {
 }
 .y-scroll {
     overflow-y: scroll;
+}
+.text-center {
+    text-align: center;
 }
