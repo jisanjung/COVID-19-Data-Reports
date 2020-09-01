@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SingleData from './SingleData'
 import Chart from './Chart';
-import Countries from './Countries';
+import CountryList from './CountryList';
 import moment from "moment";
 
 export class Main extends Component {
@@ -36,7 +36,7 @@ export class Main extends Component {
                     deaths: data.deaths,
                     recovered: data.recovered,
                     cases_today: data.todayCases
-                }, () => console.log(this.state));
+                });
             })
             .catch(error => console.log(error));
     }
@@ -67,7 +67,7 @@ export class Main extends Component {
 
                     </div>
                     <div className="country-list">
-                        <Countries/>
+                        <CountryList/>
                     </div>
                 </div>
             </main>
