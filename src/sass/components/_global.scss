@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 /* resets */
 * {
@@ -84,6 +85,9 @@ img {
 .cursor:hover {
     cursor: pointer;
 }
+.block {
+    display: block;
+}
 .inline-block {
     display: inline-block;
 }
@@ -101,4 +105,26 @@ img {
 }
 .text-center {
     text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+/* only global to application */
+main {
+    background: $bg-light;
+    .text {
+        color: $dark;
+    }
+    .last-updated {
+        @include container(small);
+        padding: 0.95rem;
+    }
+    .component {
+        background: $white;
+        @include container(small);
+        margin-bottom: 1.5rem;
+        padding: 0.95rem;
+        border-radius: 15px;
+    }
 }

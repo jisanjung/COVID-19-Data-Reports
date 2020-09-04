@@ -1,20 +1,11 @@
 @import "../utils/mixins";
 
 .chart-layout {
-    order: 1;
+    order: 2;
 }
 .single-data-section {
-    order: 2;
+    order: 1;
 }
 .country-list {
     order: 3;
-}
-
-@include media-query-grow(768px) {
-    .chart-layout {
-        order: 2;
-    }
-    .single-data-section {
-        order: 1;
-    }
 }

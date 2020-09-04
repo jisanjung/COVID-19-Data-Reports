@@ -25,12 +25,12 @@ export class CountryList extends Component {
 
     render() {
         return (
-            <section className="country-list">
+            <section className="country-list component">
                 <ul className="table-header flex">
-                    <li className="country-name"><span>Name</span></li>
-                    <li className="country-data"><span>Cases</span></li>
-                    <li className="country-data"><span>Deaths</span></li>
-                    <li className="country-data"><span>Recovered</span></li>
+                    <li className="country-name"><span className="text">Name</span></li>
+                    <li className="country-data"><span className="text">Cases</span></li>
+                    <li className="country-data"><span className="text">Deaths</span></li>
+                    <li className="country-data"><span className="text">Recovered</span></li>
                 </ul>
                 <div className="y-scroll list-wrap">
                     <table>

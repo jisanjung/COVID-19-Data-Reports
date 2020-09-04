@@ -3,6 +3,7 @@ import SingleData from './SingleData'
 import Chart from './Chart';
 import CountryList from './CountryList';
 import moment from "moment";
+import { faGlobe, faDizzy, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 export class Main extends Component {
     constructor() {
@@ -53,17 +54,19 @@ export class Main extends Component {
         return (
             <main>
                 <div className="main-container flex direction-column">
-                    <div className="last-updated">
-                        <span>last updated: {timeUpdated}</span>
+                    <div className="last-updated w-100">
+                        <span className="text block text-right">last updated: {timeUpdated}</span>
                     </div>
                     <div className="chart-layout">
                         <Chart/>
-                        <SingleData value={this.state.cases_today} type="Cases Today"/>
+                        <div className="cases-today">
+                            <SingleData value={this.state.cases_today} type="Cases Today"/>
+                        </div>
                     </div>
                     <div className="single-data-section">
-                        <SingleData value={this.state.cases} type="Total Cases"/>
-                        <SingleData value={this.state.deaths} type="Deaths"/>
-                        <SingleData value={this.state.recovered} type="Recovered"/>
+                        <SingleData value={this.state.cases} type="Total Cases" icon={faGlobe}/>
+                        <SingleData value={this.state.deaths} type="Deaths" icon={faDizzy}/>
+                        <SingleData value={this.state.recovered} type="Recovered" icon={faHeart}/>
 
                     </div>
                     <div className="country-list">
