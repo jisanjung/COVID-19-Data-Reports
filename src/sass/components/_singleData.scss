@@ -1,10 +1,22 @@
 // global styles for singleData component
 
+
 // style only for "cases today component"
 .cases-today {
     .single-data {
         .icon {
             display: none;
+        }
+    }
+}
+
+/* global for singleData */
+.single-data {
+    .icon-wrap {
+        padding: 1rem;
+        border-radius: 10px;
+        .icon {
+            font-size: 22px;
         }
     }
 }

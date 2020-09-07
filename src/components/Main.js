@@ -64,9 +64,9 @@ export class Main extends Component {
                         </div>
                     </div>
                     <div className="single-data-section">
-                        <SingleData value={this.state.cases} type="Total Cases" icon={faGlobe}/>
-                        <SingleData value={this.state.deaths} type="Deaths" icon={faDizzy}/>
-                        <SingleData value={this.state.recovered} type="Recovered" icon={faHeart}/>
+                        <SingleData value={this.state.cases} type="Total Cases" icon={faGlobe} color="#827af3" background="rgba(130, 122, 243, 0.2)"/>
+                        <SingleData value={this.state.deaths} type="Deaths" icon={faDizzy} color="#f14336" background="rgba(241, 67, 54, 0.1)"/>
+                        <SingleData value={this.state.recovered} type="Recovered" icon={faHeart} color="#ffd369" background="rgba(255, 211, 105, 0.125)"/>
 
                     </div>
                     <div className="country-list">
