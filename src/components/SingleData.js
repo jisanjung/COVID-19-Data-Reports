@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMehBlank, faSignal } from '@fortawesome/free-solid-svg-icons'
+import { faMehBlank, faSignal } from '@fortawesome/free-solid-svg-icons';
+import numeral from "numeral";
 
 const SingleData = (props) => {
     const value = props.value; // recorded numerical value
@@ -11,14 +12,14 @@ const SingleData = (props) => {
 
     return (
         <section className="single-data component">
-            <span className="text type-of-data">{type}</span>
-            <div className="flex align-center">
+            <span className="text type-of-data block">{type}</span>
+            <div className="flex align-center relative">
                 <div className="icon-wrap" style={{background: background}}>
                     <FontAwesomeIcon icon={icon == null ? faMehBlank : icon} style={{color: color}} className="icon"/>
                 </div>
-                <span className="text">{value}</span>
-                <div className="icon">
-                    <FontAwesomeIcon icon={faSignal} />
+                <span className="text">{numeral(value).format("0,0")}</span>
+                <div className="icon stats-icon absolute">
+                    <FontAwesomeIcon icon={faSignal} style={{color: color}}/>
                 </div>
             </div>
         </section>

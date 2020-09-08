@@ -12,11 +12,23 @@
 
 /* global for singleData */
 .single-data {
-    .icon-wrap {
-        padding: 1rem;
-        border-radius: 10px;
-        .icon {
-            font-size: 22px;
+    .type-of-data {
+        margin-bottom: 1rem;
+    }
+    .flex {
+        .icon-wrap {
+            padding: 1rem;
+            border-radius: 10px;
+            .icon {
+                font-size: 22px;
+            }
+        }
+        .text {
+            margin-left: 0.5rem;
+            font-size: 1.75rem;
+        }
+        .stats-icon {
+            right: 0;
         }
     }
 }
