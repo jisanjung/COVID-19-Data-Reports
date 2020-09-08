@@ -26,6 +26,9 @@ export class CountryList extends Component {
     render() {
         return (
             <section className="country-list component">
+                <div className="header">
+                    <span>Countries (Highest to Lowest)</span>
+                </div>
                 <ul className="table-header flex">
                     <li className="country-name"><span className="text">Name</span></li>
                     <li className="country-data"><span className="text">Cases</span></li>

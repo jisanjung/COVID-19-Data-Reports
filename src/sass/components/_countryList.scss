@@ -9,7 +9,20 @@
 }
 
 .country-list {
-    font-size: $med-text;
+    .text {
+        font-size: 12px;
+    }
+    .header {
+        margin-bottom: 1rem;
+    }
+    .table-header {
+        margin-bottom: 0.5rem;
+        li {
+            .text {
+                font-weight: bold;
+            }
+        }
+    }
     .list-wrap {
         height: 500px;
         table {
@@ -17,8 +30,20 @@
             td {
                 .flag {
                     width: 20px;
+                    margin-right: 4px;
                 }
             }
         }
+    }
+}
+
+/* each country */
+.country {
+    padding: 0.25rem 0;
+    &:nth-child(odd) {
+        background: $light;
+    }
+    .country-data + .country-data {
+        margin-left: 0.5rem;
     }
 }
