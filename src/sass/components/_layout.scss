@@ -2,9 +2,33 @@
 
 .chart-layout {
     order: 2;
+    @include media-query-grow(768px) {
+        margin: 0 5%;
+        display: flex;
+        .chart-container, .cases-today {
+            width: 50%;
+        }
+        .chart-container + .cases-today {
+            margin-left: 1.5rem;
+        }
+        .single-data {
+            max-width: 100%;
+            margin: 0;
+        }
+    }
 }
 .single-data-section {
     order: 1;
+    @include media-query-grow(1024px) {
+        margin: 0 5%;
+        display: flex;
+        .single-data {
+            width: 33%;
+        }
+        .single-data + .single-data {
+            margin-left: 1.5rem;
+        }
+    }
 }
 .country-list {
     order: 3;
