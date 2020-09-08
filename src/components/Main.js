@@ -3,7 +3,7 @@ import SingleData from './SingleData'
 import Chart from './Chart';
 import CountryList from './CountryList';
 import moment from "moment";
-import { faGlobe, faDizzy, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faGlobe, faDizzy, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export class Main extends Component {
     constructor() {
@@ -55,7 +55,7 @@ export class Main extends Component {
             <main>
                 <div className="main-container flex direction-column">
                     <div className="last-updated w-100">
-                        <span className="text block text-right">last updated: {timeUpdated}</span>
+                        <span className="text block text-right" style={{fontSize: "14px"}}>last updated: {timeUpdated}</span>
                     </div>
                     <div className="chart-layout">
                         <Chart/>

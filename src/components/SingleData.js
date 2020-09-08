@@ -22,6 +22,7 @@ const SingleData = (props) => {
                     <FontAwesomeIcon icon={faSignal} style={{color: color}}/>
                 </div>
             </div>
+            <div className="undraw"></div>
         </section>
     )
 }

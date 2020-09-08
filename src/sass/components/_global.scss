@@ -118,7 +118,7 @@ main {
     }
     .last-updated {
         @include container(small);
-        padding: 0.95rem;
+        padding: 1rem;
     }
     .component {
         background: $white;
