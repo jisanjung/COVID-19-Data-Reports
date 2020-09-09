@@ -25,7 +25,7 @@ export class CountryList extends Component {
 
     render() {
         return (
-            <section className="country-list component">
+            <section className="component">
                 <div className="header">
                     <span>Countries (Highest to Lowest)</span>
                 </div>

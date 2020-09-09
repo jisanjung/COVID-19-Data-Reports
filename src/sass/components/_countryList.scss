@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 /* global for this component */ 
 .country-name {
@@ -11,6 +12,9 @@
 .country-list {
     .text {
         font-size: 12px;
+        @include media-query-grow(768px) {
+            font-size: 14px;
+        }
     }
     .header {
         margin-bottom: 1rem;
@@ -24,7 +28,7 @@
         }
     }
     .list-wrap {
-        height: 500px;
+        height: 350px;
         table {
             width: 100%;
             td {
@@ -41,7 +45,7 @@
 .country {
     padding: 0.25rem 0;
     &:nth-child(odd) {
-        background: $light;
+        background: $bg-light;
     }
     .country-data + .country-data {
         margin-left: 0.5rem;

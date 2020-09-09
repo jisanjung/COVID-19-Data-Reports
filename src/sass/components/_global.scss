@@ -111,20 +111,25 @@ img {
 }
 
 /* only global to application */
-main {
+body {
     background: $bg-light;
-    .text {
-        color: $dark;
-    }
-    .last-updated {
-        @include container(small);
-        padding: 1rem;
-    }
-    .component {
-        background: $white;
-        @include container(small);
-        margin-bottom: 1.5rem;
-        padding: 0.95rem;
-        border-radius: 15px;
+    main {
+        margin-bottom: 4rem;
+        .text {
+            color: $dark;
+        }
+        .last-updated {
+            @include container(small);
+            padding: 1rem 0;
+            @include media-query-grow(1024px) {
+                padding: 2rem 0;
+            }
+        }
+        .component {
+            background: $white;
+            margin-bottom: 1.5rem;
+            padding: 0.95rem;
+            border-radius: 15px;
+        }
     }
 }

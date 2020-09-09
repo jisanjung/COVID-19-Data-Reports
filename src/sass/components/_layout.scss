@@ -1,35 +1,42 @@
 @import "../utils/mixins";
 
-.chart-layout {
-    order: 2;
-    @include media-query-grow(768px) {
-        margin: 0 5%;
-        display: flex;
-        .chart-container, .cases-today {
-            width: 50%;
-        }
-        .chart-container + .cases-today {
-            margin-left: 1.5rem;
-        }
-        .single-data {
-            max-width: 100%;
-            margin: 0;
+main {
+    @include container(small);
+    @include media-query-grow(1200px) {
+        @include container(large);
+    }
+    @include media-query-grow(1440px) {
+        @include container(x-large);
+    }
+    .chart-layout {
+        order: 2;
+        @include media-query-grow(768px) {
+            display: flex;
+            .chart-container, .cases-today {
+                width: 50%;
+            }
+            .chart-container + .cases-today {
+                margin-left: 1.5rem;
+            }
+            .single-data {
+                max-width: 100%;
+                margin: 0;
+            }
         }
     }
-}
-.single-data-section {
-    order: 1;
-    @include media-query-grow(1024px) {
-        margin: 0 5%;
-        display: flex;
-        .single-data {
-            width: 33%;
-        }
-        .single-data + .single-data {
-            margin-left: 1.5rem;
+    .single-data-section {
+        order: 1;
+        @include media-query-grow(1024px) {
+            display: flex;
+            .single-data {
+                width: 33%;
+            }
+            .single-data + .single-data {
+                margin-left: 1.5rem;
+            }
         }
     }
-}
-.country-list {
-    order: 3;
+    .country-list {
+        order: 3;
+    }
 }
